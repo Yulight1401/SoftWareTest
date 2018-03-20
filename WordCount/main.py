@@ -4,24 +4,27 @@ import os
 
 RESULT_NAME = 'result.txt'
 
+# 统计字符数
 def funChar(flow):
     charLen = len(flow)
     result = '字符数为：' + str(charLen) + '\n'
     print(result)
     return result
 
+# 统计单词
 def funWord(flow):
     wordLen = len(flow.replace(',', ' ').split(' '))
     result = '单词数为:' + str(wordLen) + '\n'
     print(result)
     return result
-
+# 统计行数
 def funLine(flow):
     lineLen = flow.count('\n')
     result = '行数为:' + str(lineLen) + '\n'
     print(result)
     return result
 
+# 写文件
 def funOut(result):
     fileObj = open(RESULT_NAME, 'w')
     fileObj.write(result)
