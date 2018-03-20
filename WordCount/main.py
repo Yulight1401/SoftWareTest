@@ -7,22 +7,16 @@ RESULT_NAME = 'result.txt'
 # 统计字符数
 def funChar(flow):
     charLen = len(flow)
-    result = '字符数为：' + str(charLen) + '\n'
-    print(result)
-    return result
+    return charLen
 
 # 统计单词
 def funWord(flow):
     wordLen = len(flow.replace(',', ' ').split(' '))
-    result = '单词数为:' + str(wordLen) + '\n'
-    print(result)
-    return result
+    return wordLen
 # 统计行数
 def funLine(flow):
-    lineLen = flow.count('\n')
-    result = '行数为:' + str(lineLen) + '\n'
-    print(result)
-    return result
+    lineLen = flow.count('\n') 
+    return lineLen + 1
 
 # 写文件
 def funOut(result):
@@ -41,14 +35,21 @@ def main():
     ifOutPut = 0
     for func in params:
         if func == '-c':
-            result += funChar(wordFlow)
+            log = '字符数为：' + str(funChar(wordFlow)) + '\n'
+            print(log)
+            result += log
         if func == '-w':
-            result += funWord(wordFlow)
+            log = '单词数为:' + str(funWord(wordFlow)) + '\n'
+            print(log)
+            result += log
         if func == '-l':
-            result += funLine(wordFlow)
+            log = '行数为:' + str(funLine(wordFlow)) + '\n'
+            print(log)
+            result += log
         if func == '-o':
-            ifOutPut += 1            
+            ifOutPut = 1            
     if ifOutPut == 1:
         funOut(result)
 
-main()    
+if __name__ == '__main__':
+    main()    
